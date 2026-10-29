@@ -1,0 +1,40 @@
+node_modules/
+frontend/dist/
+backend/target/
+out/
+
+# Banco de dados e backups
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+*.log
+data/
+backups/
+
+# Segredos e certificados
+.env
+.env.*
+!.env.example
+certs/
+*.pem
+*.key
+*.p12
+*.jks
+*.tar
+*.tgz
+*.zip
+
+# Dados de roteiro
+*.csv
+*.csv:Zone.Identifier
+cronograma*.csv
+
+# IDE / SO
+.idea/
+.vscode/
+.DS_Store
+frontend/src_backup/
+proxy_wsl.bat

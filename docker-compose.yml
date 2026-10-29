@@ -1,0 +1,36 @@
+name: doravia
+
+services:
+  backend:
+    image: doravia-backend:latest
+    build: ./backend
+    restart: always
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_EXPIRATION=86400000
+      - CORS_ALLOWED_ORIGINS=${CORS_ALLOWED_ORIGINS:-http://localhost}
+
+  frontend:
+    image: doravia-frontend:latest
+    build: ./frontend
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./certs:/etc/nginx/certs:ro
+    depends_on:
+      - backend
+
+  cloudflared:
+    profiles: ["tunnel"]
+    image: cloudflare/cloudflared:2025.5.0
+    network_mode: host
+    command: tunnel --url http://localhost:80
+    restart: on-failure:5
+    depends_on:
+      - frontend

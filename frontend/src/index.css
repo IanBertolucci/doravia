@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-page: var(--bg-page);
+  --color-card: var(--bg-card);
+  --color-card-hover: var(--bg-card-hover);
+  --color-elevated: var(--bg-elevated);
+  --color-primary: var(--text-primary);
+  --color-body: var(--text-body);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-muted);
+  --color-custom: var(--border);
+  --color-custom-light: var(--border-light);
+}
+
+:root {
+  --bg-page: #0f0f0f;
+  --bg-card: #171717;
+  --bg-card-hover: #1f1f1f;
+  --bg-elevated: #262626;
+  --text-primary: #ffffff;
+  --text-secondary: #a3a3a3;
+  --text-body: #d4d4d4;
+  --text-muted: #737373;
+  --border: #262626;
+  --border-light: #333333;
+  --overlay: rgba(0, 0, 0, 0.7);
+  color-scheme: dark;
+}
+
+.light {
+  --bg-page: #faf0e6;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8efe4;
+  --bg-elevated: #f3e8da;
+  --text-primary: #1f1712;
+  --text-secondary: #8a7a6a;
+  --text-body: #4d4036;
+  --text-muted: #b8aa9a;
+  --border: #e6d8c8;
+  --border-light: #d8caba;
+  --overlay: rgba(0, 0, 0, 0.4);
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+}
